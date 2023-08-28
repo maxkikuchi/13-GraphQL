@@ -8,16 +8,16 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
+	_ "github.com/mattn/go-sqlite3"
 	"github.com/maxkikuchi/13-GraphQL/graph"
 	"github.com/maxkikuchi/13-GraphQL/graph/generated"
 	"github.com/maxkikuchi/13-GraphQL/internal/database"
-	_ "github.com/mattn/go-sqlite3"
 )
 
 const defaultPort = "8080"
 
 func main() {
-	db, err := sql.Open("sqlite3", "./data.db")
+	db, err := sql.Open("sqlite3", "../../data.db")
 	if err != nil {
 		log.Fatalf("failed to open database: %v", err)
 	}
